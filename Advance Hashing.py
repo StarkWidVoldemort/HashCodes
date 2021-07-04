@@ -8,6 +8,8 @@ users = {}
 username = input('Enter any username: ')
 password = input('Enter the password of your choice: ')
 
+print('Loading...')
+
 # Hashing
 salt = os.urandom(36)  # Generated a salt
 key = hashlib.pbkdf2_hmac(
@@ -25,6 +27,7 @@ users[username] = {
 
 # Verifying
 password_to_check = input('Enter the password again to verify: ')
+print('Loading...')
 salt = users[username]['salt']
 key = users[username]['key']
 new_key = hashlib.pbkdf2_hmac(
